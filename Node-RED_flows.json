@@ -1,0 +1,421 @@
+[
+    {
+        "id": "8ab5fde0740beb97",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b9f457985729b28b",
+        "type": "ui_button",
+        "z": "8ab5fde0740beb97",
+        "name": "Button",
+        "group": "cf4ead07d659ec49",
+        "order": 13,
+        "width": 9,
+        "height": 1,
+        "passthru": false,
+        "label": "Request <i class=\"fa fa-hand-o-up\" aria-hidden=\"true\"></i> ",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "weather/request",
+        "topicType": "msg",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "bab3e184132866a3"
+            ]
+        ]
+    },
+    {
+        "id": "bab3e184132866a3",
+        "type": "mqtt out",
+        "z": "8ab5fde0740beb97",
+        "name": "MQTT_PUB",
+        "topic": "weather/request",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "75c2356b60bba77f",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "78dc05eb3f760faa",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/country",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "759599a455e827d3"
+            ]
+        ]
+    },
+    {
+        "id": "82679a998f71102a",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/date",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 340,
+        "wires": [
+            [
+                "8cbef594d69a1b3d"
+            ]
+        ]
+    },
+    {
+        "id": "6a8b0fd84fbc30ca",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "20dd8c9fa14bd684"
+            ]
+        ]
+    },
+    {
+        "id": "2420e9ea186e76e6",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "7b02b6f5b6e2b2c5"
+            ]
+        ]
+    },
+    {
+        "id": "7a2281eb1cfb05f4",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/conditions",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "077cad65760c8804"
+            ]
+        ]
+    },
+    {
+        "id": "426d5d974864e96b",
+        "type": "mqtt in",
+        "z": "8ab5fde0740beb97",
+        "name": "",
+        "topic": "weather/wind",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "75c2356b60bba77f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 580,
+        "wires": [
+            [
+                "11796eeef08c09f2"
+            ]
+        ]
+    },
+    {
+        "id": "759599a455e827d3",
+        "type": "ui_text",
+        "z": "8ab5fde0740beb97",
+        "group": "cf4ead07d659ec49",
+        "order": 1,
+        "width": 20,
+        "height": 2,
+        "name": "Location",
+        "label": "<font color=\"blue\" size=80%>{{msg.payload}}</font>",
+        "format": "",
+        "layout": "col-center",
+        "className": "<i>\"icon-cloud\"></i>",
+        "x": 500,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8cbef594d69a1b3d",
+        "type": "ui_text",
+        "z": "8ab5fde0740beb97",
+        "group": "cf4ead07d659ec49",
+        "order": 3,
+        "width": 10,
+        "height": 2,
+        "name": "Date and Time",
+        "label": "Date and Time <i class=\"fa fa-calendar\" aria-hidden=\"true\"></i",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 520,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "077cad65760c8804",
+        "type": "ui_text",
+        "z": "8ab5fde0740beb97",
+        "group": "cf4ead07d659ec49",
+        "order": 2,
+        "width": 10,
+        "height": 2,
+        "name": "Weather Conditions",
+        "label": "Weather Conditions <i class=\"fa fa-cloud\" aria-hidden=\"true\"></i>",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 530,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "11796eeef08c09f2",
+        "type": "ui_text",
+        "z": "8ab5fde0740beb97",
+        "group": "cf4ead07d659ec49",
+        "order": 5,
+        "width": 10,
+        "height": 2,
+        "name": "Wind Conditions",
+        "label": "Wind Conditions <i class=\"fa fa-flag\" aria-hidden=\"true\"></i>",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7b02b6f5b6e2b2c5",
+        "type": "ui_gauge",
+        "z": "8ab5fde0740beb97",
+        "name": "Humidity",
+        "group": "cf4ead07d659ec49",
+        "order": 9,
+        "width": 10,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Humidity <i class=\"fa fa-tint\" aria-hidden=\"true\"></i>",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#8dc9f7",
+            "#5da3fd",
+            "#0096e0"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 500,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "20dd8c9fa14bd684",
+        "type": "ui_gauge",
+        "z": "8ab5fde0740beb97",
+        "name": "Temperature",
+        "group": "cf4ead07d659ec49",
+        "order": 10,
+        "width": 10,
+        "height": 4,
+        "gtype": "donut",
+        "title": "Temperature <i class=\"fa fa-thermometer-full\" aria-hidden=\"true\"></i>",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "75",
+        "colors": [
+            "#001f99",
+            "#fbab3c",
+            "#ca3838"
+        ],
+        "seg1": "25",
+        "seg2": "50",
+        "className": "",
+        "x": 510,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "413ca864260f62b1",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "2a03c2434253339c",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 6,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "c7e3c408c30776fb",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 7,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "a47a7a5d36227f9b",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 8,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "89d3ceeb0e76b998",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 11,
+        "width": 20,
+        "height": 1
+    },
+    {
+        "id": "eb9091eb776a8a58",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 12,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "922687aa06cbc652",
+        "type": "ui_spacer",
+        "z": "8ab5fde0740beb97",
+        "name": "spacer",
+        "group": "cf4ead07d659ec49",
+        "order": 14,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "cf4ead07d659ec49",
+        "type": "ui_group",
+        "name": "                               Weather",
+        "tab": "0cfc3d49c89cc0a4",
+        "order": 2,
+        "disp": true,
+        "width": "20",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "75c2356b60bba77f",
+        "type": "mqtt-broker",
+        "z": "8ab5fde0740beb97",
+        "name": "eclipse.io",
+        "broker": "mqtt.eclipseprojects.io",
+        "port": "1883",
+        "clientid": "client3",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "120",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0cfc3d49c89cc0a4",
+        "type": "ui_tab",
+        "name": "                              Weather",
+        "icon": "",
+        "disabled": false,
+        "hidden": false
+    }
+]
